@@ -15,7 +15,14 @@ This command splits a video horizontally (left/right)
 This command creates a 10-second GIF clip starting at 01:00 minute (with a lower file size).
 > `ffmpeg -i input.mp4 -ss 00:01:00 -t 10 -filter_complex "[0:v] fps=8,scale=480:-1:flags=lanczos,split [a][b];[a] palettegen=max_colors=128 [p];[b][p] paletteuse" -pix_fmt pal8 -loop 0 output.gif`
 
+## Flip Image Horizontally/Vertically
 > `ffmpeg -i 'test.jpeg' -filter:v "hflip" -c:a copy output.jpeg`
+
+## Extract video frame by frame
 > `ffmpeg -i input.mp4 -vf "select=1" -vsync vfr output_%04d.png`
+
+## Deinterlacing a video
 > `ffmpeg -i input.mp4 -c:v utvideo -vf "yadif=1" -pix_fmt yuv420p -c:a copy output-des.mp4`
+
+## Generate a video from image frames
 > `ffmpeg -framerate 25 -i output/%04d.png -c:v libx264 output.mp4`
