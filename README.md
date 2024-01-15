@@ -30,3 +30,7 @@ This command
 ## Generate a video from image frames
 This command 
 > `ffmpeg -framerate 25 -i output/%04d.png -c:v libx264 output.mp4`
+
+## Aspect Ratio
+This command 
+> `ffmpeg -i 'input.mkv' -c copy -aspect 4:3 'output.mp4`
