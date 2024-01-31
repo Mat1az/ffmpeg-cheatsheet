@@ -34,3 +34,9 @@ This command
 ## Aspect Ratio
 This command 
 > `ffmpeg -i 'input.mkv' -c copy -aspect 4:3 'output.mp4`
+
+## To 480p
+> `ffmpeg -i input.mp4 -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 output.mp4`
+
+## Without audio
+> `ffmpeg -i $input_file -c copy -an $output_file`
